@@ -1,5 +1,0 @@
-PİSKOLOG AYTEN NUR
-web sitesi örneğidir
-proje html ve css kodlarını içerir
-javascript yoğun kullanılmamıştır
-locastoreage vardır
