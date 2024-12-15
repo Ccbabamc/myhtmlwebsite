@@ -1,0 +1,12 @@
+
+                                            ÖDEV 1
+
+
+1. Yerel ağımızda sadece bir cihaz tespit ettim tarama sonrası bir cihaz görüntülendi telefonu router olarak kullandım
+2. açık olan portlarda sadece port 53 dns protokolü açıktı 999 tanesi kapalıydı.
+Yerel ağda tespit edilen cihaz sayısı: 1 (192.168.159.146 IP adresinde)
+Seçilen cihazda açık olan portlar: Port 53 (TCP) - DNS servisi
+
+
+
+                                          ÖDEV 2

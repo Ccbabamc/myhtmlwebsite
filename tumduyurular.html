@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duyuru Paneli - Psikolog Ayten Nur</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Açık gri arka plan */
+            color: #343a40; /* Gri metin rengi */
+            background-image: url('images/image.jpg'); /* Arka plan resmi */
+            background-size: cover; /* Resmi tam ekran kaplayacak şekilde ayarlar */
+            background-repeat: no-repeat; /* Resmin tekrar etmesini engeller */
+            background-attachment: fixed; /* Arka plan resmini sabitler */
+        }
+        .navbar-custom {
+            background-color: #000000; /* Siyah arka plan */
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff; /* Beyaz metin rengi */
+        }
+        .navbar-custom .nav-link:hover {
+            color: #d1ecf1; /* Açık mavi metin rengi */
+        }
+        .navbar-custom .dropdown-menu {
+            background-color: #ffffff; /* Beyaz arka plan */
+        }
+        .navbar-custom .dropdown-item {
+            color: #000000; /* Siyah metin rengi */
+        }
+        .navbar-custom .dropdown-item:hover,
+        .navbar-custom .dropdown-item:focus,
+        .navbar-custom .dropdown-item:active {
+            color: #007bff; /* Açık mavi metin rengi */
+            background-color: #f8f9fa; /* Açık gri arka plan */
+        }
+        .login-container {
+            background-color: #ffffff; /* Beyaz arka plan */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        .content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginSection" class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="username" class="form-label">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Şifre</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Giriş Yap</button>
+        </form>
+    </div>
+
+    <div id="dashboardSection" style="display: none;">
+        <!-- Navigasyon Çubuğu -->
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">PİSKOLOG AYTEN NUR</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Ana Sayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hakkimizda.html">Hakkımda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="misyonvizyon.html">Misyon-Vizyon</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="urunlerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hizmetlerimiz
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="urunlerDropdown">
+                                <li><a class="dropdown-item" href="urun1.html">Aile Terapisi</a></li>
+                                <li><a class="dropdown-item" href="urun2.html">Çift Terapisi</a></li>
+                                <li><a class="dropdown-item" href="urun3.html">Çocuk Terapisi</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="birimlerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Birimlerimiz
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="birimlerDropdown">
+                                <li><a class="dropdown-item" href="birim1.html">Danışmanlık ve Terapi Birimi</a></li>
+                                <li><a class="dropdown-item" href="birim2.html">Eğitim ve Atölye Birimi</a></li>
+                                <li><a class="dropdown-item" href="birim3.html">Psikolojik Test ve Değerlendirme Birimi</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="iletisim.html">İletişim</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-danger" id="logoutButton">Çıkış Yap</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- İçerik -->
+        <div class="container mt-5">
+            <h1>Duyuru Paneli</h1>
+
+            <!-- Duyuru Ekleme Formu -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    Duyuru Ekle
+                </div>
+                <div class="card-body">
+                    <form id="duyuruForm">
+                        <div class="mb-3">
+                            <label for="duyuruBaslik" class="form-label">Başlık</label>
+                            <input type="text" class="form-control" id="duyuruBaslik" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="duyuruIcerik" class="form-label">İçerik</label>
+                            <textarea class="form-control" id="duyuruIcerik" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="duyuruPdf" class="form-label">PDF Belgesi</label>
+                            <input type="file" class="form-control" id="duyuruPdf">
+                        </div>
+                        <div class="mb-3">
+                            <label for="duyuruWord" class="form-label">Word Belgesi</label>
+                            <input type="file" class="form-control" id="duyuruWord">
+                        </div>
+                        <div class="mb-3">
+                            <label for="duyuruResim" class="form-label">Resim</label>
+                            <input type="file" class="form-control" id="duyuruResim">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ekle</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Duyurular Listesi -->
+            <div class="card">
+                <div class="card-header">
+                    Duyurular
+                </div>
+                <div class="card-body">
+                    <ul class="list-group" id="duyuruListesi">
+                        <!-- Duyurular buraya eklenecek -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'admin') {
+                localStorage.setItem('loggedIn', 'true');
+                showDashboard();
+            } else {
+                alert('Yanlış kullanıcı adı veya şifre');
+            }
+        });
+
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'index.html';
+        });
+
+        function showDashboard() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('dashboardSection').style.display = 'block';
+        }
+
+        function showLogin() {
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('dashboardSection').style.display = 'none';
+        }
+
+        function checkLogin() {
+            if (localStorage.getItem('loggedIn') === 'true') {
+                showDashboard();
+            } else {
+                showLogin();
+            }
+        }
+
+        checkLogin();
+
+        document.getElementById('duyuruForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var baslik = document.getElementById('duyuruBaslik').value;
+            var icerik = document.getElementById('duyuruIcerik').value;
+            var duyuruListesi = document.getElementById('duyuruListesi');
+
+            var li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.innerHTML = baslik + '<button class="btn btn-danger btn-sm" onclick="silDuyuru(this)">Sil</button>';
+
+            duyuruListesi.appendChild(li);
+
+            // Duyuruyu localStorage'a eklemek için
+            var duyurular = JSON.parse(localStorage.getItem('duyurular')) || [];
+            duyurular.push({ baslik: baslik, icerik: icerik });
+            localStorage.setItem('duyurular', JSON.stringify(duyurular));
+
+            // Formu temizle
+            document.getElementById('duyuruForm').reset();
+        });
+
+        function silDuyuru(button) {
+            var li = button.parentElement;
+            li.parentElement.removeChild(li);
+
+            // Duyuruyu localStorage'dan silmek için
+            var baslik = li.firstChild.textContent;
+            var duyurular = JSON.parse(localStorage.getItem('duyurular')) || [];
+            duyurular = duyurular.filter(function(duyuru) {
+                return duyuru.baslik !== baslik;
+            });
+            localStorage.setItem('duyurular', JSON.stringify(duyurular));
+        }
+
+        // Sayfa yüklendiğinde localStorage'dan duyuruları yükle
+        document.addEventListener('DOMContentLoaded', function() {
+            var duyurular = JSON.parse(localStorage.getItem('duyurular')) || [];
+            var duyuruListesi = document.getElementById('duyuruListesi');
+            duyuruListesi.innerHTML = ''; // Önceki duyuruları temizle
+            duyurular.forEach(function(duyuru) {
+                var li = document.createElement('li');
+                li.className = 'list-group-item d-flex justify-content-between align-items-center';
+                li.innerHTML = duyuru.baslik + '<button class="btn btn-danger btn-sm" onclick="silDuyuru(this)">Sil</button>';
+                duyuruListesi.appendChild(li);
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
